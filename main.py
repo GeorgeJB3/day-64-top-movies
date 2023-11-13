@@ -1,3 +1,4 @@
+import wtforms.validators
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
@@ -33,10 +34,38 @@ with app.app_context():
     db.create_all()
 
 
+class RateMovieForm(FlaskForm):
+    rating = StringField('Your Rating Out of 10 e.g. 7.5')
+    review = StringField('Your Review')
+    done = SubmitField('Done')
+
+
 @app.route("/")
 def home():
     all_movies = db.session.execute(db.select(Movie).order_by(Movie.ranking)).scalars()
     return render_template("index.html", movies=all_movies)
+
+
+@app.route("/edit", methods=["GET", "POST"])
+def rate_movie():
+    form = RateMovieForm()
+    movie_id = request.args.get("id")
+    movie = db.get_or_404(Movie, movie_id)
+    if form.validate_on_submit():
+        movie.rating = float(form.rating.data)
+        movie.review = form.review.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template("edit.html", movie=movie, form=form)
+
+
+@app.route("/delete", methods=["GET", "POST"])
+def delete_movie():
+    movie_id = request.args.get("id")
+    movie = db.get_or_404(Movie, movie_id)
+    db.session.delete(movie)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
