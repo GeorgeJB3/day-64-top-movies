@@ -13,7 +13,7 @@ I was responsible for only the backend development of this website.
 
 To add a movie you first select Add Movie
 
-![Screenshot 2023-11-19 at 18.10.11.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_KMKLFk%2FScreenshot%202023-11-19%20at%2018.10.11.png)
+![Screenshot 2023-11-19 at 18 49 08](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/4af35300-913c-4637-a741-6864e3440e90)
 
 This will take you to a page where you can input the title 
 of the movie you would like to add to the database.
