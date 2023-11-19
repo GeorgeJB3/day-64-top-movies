@@ -30,7 +30,8 @@ You'll then need to add a rating and review of the movie then click Done.
 ![Screenshot 2023-11-19 at 18 54 45](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/115fccd8-2507-42a9-8917-b4a37bbc9013)
 
 This then display the ranking and movie image on the homepage.
-![Screenshot 2023-11-19 at 18.15.25.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_VhKLzQ%2FScreenshot%202023-11-19%20at%2018.15.25.png)
+
+![Screenshot 2023-11-19 at 18 56 07](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/0f4af300-2a3d-457a-bd7e-6fcc89b3893b)
 
 On the back of the card the title, release year, rating, review and desciption 
 are displayed.
