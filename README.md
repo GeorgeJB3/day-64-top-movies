@@ -23,7 +23,7 @@ of the movie you would like to add to the database.
 Using The Movie DataBase API (TMDB) this will then present a list of all the movies in the TMDB.
 Click on the movie you would like to add. 
 
-![Screenshot 2023-11-19 at 18 52 09](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/a5b72ab7-a187-4600-888d-4ccef1beb8f7)
+![Screenshot 2023-11-19 at 18 59 12](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/8295ed80-5bc2-4c16-88df-a9c11bb11e7c)
 
 You'll then need to add a rating and review of the movie then click Done.
 
