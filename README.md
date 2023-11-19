@@ -18,12 +18,15 @@ To add a movie you first select Add Movie
 This will take you to a page where you can input the title 
 of the movie you would like to add to the database.
 
+![Screenshot 2023-11-19 at 18 50 41](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/2213daf7-0528-4903-b811-ab36ef16023d)
+
 Using The Movie DataBase API (TMDB) this will then present a list of all the movies in the TMDB.
 Click on the movie you would like to add. 
 
+![Screenshot 2023-11-19 at 18 52 09](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/a5b72ab7-a187-4600-888d-4ccef1beb8f7)
+
 You'll then need to add a rating and review of the movie then click Done.
 
-![Screenshot 2023-11-19 at 18 50 41](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/2213daf7-0528-4903-b811-ab36ef16023d)
 
 This then display the ranking and movie image on the homepage.
 ![Screenshot 2023-11-19 at 18.15.25.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_VhKLzQ%2FScreenshot%202023-11-19%20at%2018.15.25.png)
