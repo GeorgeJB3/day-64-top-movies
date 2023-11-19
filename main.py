@@ -8,10 +8,11 @@ from wtforms.validators import DataRequired
 import os
 import requests
 
-TMDB_KEY = os.environ.get("TMDB_API_KEY")
-TMDB_URL = "https://api.themoviedb.org/3/search/movie"
 
-print(TMDB_KEY)
+TMDB_KEY = os.environ.get('TMDB_API_KEY')
+TMDB_URL = "https://api.themoviedb.org/3/search/movie"
+TMDB_ID_URL = "https://api.themoviedb.org/3/movie/"
+TMDB_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -52,12 +53,21 @@ class FindMovieForm(FlaskForm):
 
 @app.route("/")
 def home():
-    all_movies = db.session.execute(db.select(Movie).order_by(Movie.ranking)).scalars()
+    """
+    Renders the homepage with a list of all the movies in the movies' database.
+    Movies are ordered by the rating and assigned a rank, 1-100 with 1 being the highest rated movie
+     """
+    result = db.session.execute(db.select(Movie).order_by(Movie.rating.desc()))
+    all_movies = result.scalars().all()
+    for i in range(len(all_movies)):
+        all_movies[i].ranking = i + 1
+    db.session.commit()
     return render_template("index.html", movies=all_movies)
 
 
 @app.route("/edit", methods=["GET", "POST"])
 def rate_movie():
+    """ Renders page with a flask form allowing you to edit the rating and review of a movie in the movies database """
     edit_rating_form = RateMovieForm()
     movie_id = request.args.get("id")
     movie = db.get_or_404(Movie, movie_id)
@@ -71,6 +81,7 @@ def rate_movie():
 
 @app.route("/delete", methods=["GET", "POST"])
 def delete_movie():
+    """ Pressing the delete button will remove chosen movie from the database """
     movie_id = request.args.get("id")
     movie = db.get_or_404(Movie, movie_id)
     db.session.delete(movie)
@@ -80,6 +91,10 @@ def delete_movie():
 
 @app.route("/add", methods=["GET", "POST"])
 def add_movie():
+    """
+    add_movie takes an input of a film name then makes a request to The Movie DataBase retrieving all the
+    movies with the given name and then renders select.html with a list off all results
+    """
     find_movie_form = FindMovieForm()
     if find_movie_form.validate_on_submit():
         movie_title = find_movie_form.title.data
@@ -87,6 +102,29 @@ def add_movie():
         movie_data = response.json()['results']
         return render_template('select.html', data=movie_data)
     return render_template("add.html", find_form=find_movie_form)
+
+
+@app.route("/find")
+def find_movie():
+    """
+    Once you select the movie you want from select.html this function retrieves the movie id then renders
+    edit.html allowing you to leave a rating and review for the movie before it is displayed on the homepage
+    """
+    movie_id = request.args.get('id')
+    movie_api_url = f'{TMDB_ID_URL}{movie_id}'
+    if movie_id:
+        chosen_movie = requests.get(url=movie_api_url, params={"api_key": TMDB_KEY, "language": 'en-US'}).json()
+        image_path = chosen_movie['belongs_to_collection']['poster_path']
+        movie_image_url = f"{TMDB_IMAGE_URL}{image_path}"
+        new_movie = Movie(
+            title=chosen_movie['title'],
+            description=chosen_movie['overview'],
+            year=chosen_movie['release_date'].split('-')[0],
+            img_url=movie_image_url,
+        )
+        db.session.add(new_movie)
+        db.session.commit()
+        return redirect(url_for('rate_movie', id=new_movie.id))
 
 
 if __name__ == '__main__':
