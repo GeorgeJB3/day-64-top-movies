@@ -36,7 +36,7 @@ This then display the ranking and movie image on the homepage.
 On the back of the card the title, release year, rating, review and desciption 
 are displayed.
 
-![Screenshot 2023-11-19 at 18.16.08.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_WItzFa%2FScreenshot%202023-11-19%20at%2018.16.08.png)
+![Screenshot 2023-11-19 at 18 57 23](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/b128cca7-b85b-4ef3-ae77-1ac23a254a24)
 
 You also have the option to update the rating and review or delete the movie from the movies database.
 
