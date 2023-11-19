@@ -106,6 +106,8 @@
 	 color: #fff;
 	 overflow: hidden;
 	 font-family: Poppins, sans-serif;
+     -webkit-transform: translate3d(0,0,0);
+     -webkit-backface-visibility: hidden;
 }
  .front:before {
 	 position: absolute;

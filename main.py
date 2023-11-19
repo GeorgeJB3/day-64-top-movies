@@ -55,7 +55,7 @@ class FindMovieForm(FlaskForm):
 def home():
     """
     Renders the homepage with a list of all the movies in the movies' database.
-    Movies are ordered by the rating and assigned a rank, 1-100 with 1 being the highest rated movie
+    Movies are ordered by the rating and assigned a rank, 1-10 with 1 being the highest rated movie
      """
     result = db.session.execute(db.select(Movie).order_by(Movie.rating.desc()))
     all_movies = result.scalars().all()
