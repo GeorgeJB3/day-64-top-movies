@@ -22,7 +22,8 @@ Using The Movie DataBase API (TMDB) this will then present a list of all the mov
 Click on the movie you would like to add. 
 
 You'll then need to add a rating and review of the movie then click Done.
-![Screenshot 2023-11-19 at 18.13.18.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_iLLxEe%2FScreenshot%202023-11-19%20at%2018.13.18.png)
+
+![Screenshot 2023-11-19 at 18 50 41](https://github.com/GeorgeJB3/day-64-top-movies/assets/136596668/2213daf7-0528-4903-b811-ab36ef16023d)
 
 This then display the ranking and movie image on the homepage.
 ![Screenshot 2023-11-19 at 18.15.25.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fk7%2F_nbfv3m906j0r7p1wbss1fk80000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_VhKLzQ%2FScreenshot%202023-11-19%20at%2018.15.25.png)
